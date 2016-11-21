@@ -8,24 +8,31 @@
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/onsenui/js/onsenui.min.js"></script>
   <script src="lib/onsenui/js/angular-onsenui.min.js"></script>
+  <script src="components/pull-to-refresh/pull-to-refresh.js"></script>
 
   <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
   <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body ng-controller="AppController">
-  <ons-page>
+<body>
+  <ons-page ng-controller="PageController as page">
+    <ons-pull-hook ng-action="page.load($done)" var="loader">
+      <span ng-switch="loader.state">
+        <span ng-switch-when="initial"><ons-icon size="35px" icon="ion-arrow-down-a"></ons-icon> Pull down to refresh</span>
+        <span ng-switch-when="preaction"><ons-icon size="35px" icon="ion-arrow-up-a"></ons-icon> Release to refresh</span>
+        <span ng-switch-when="action"><ons-icon size="35px" spin="true" icon="ion-load-d"></ons-icon> Loading data...</span>
+      </span>
+    </ons-pull-hook>
+
     <ons-toolbar>
-      <div class="center">Sitemap</div>
+      <div class="center">Pull to refresh</div>
     </ons-toolbar>
-    <ons-list modifier="inset">
-      <ons-list-item tappable><a href="navigator.html" target="_blank">Navigator.html</a></ons-list-item>
-      <ons-list-item tappable><a href="tabs.html" target="_blank">Tabs.html</a></ons-list-item>
-      <ons-list-item tappable><a href="menu.html" target="_blank">Menu.html</a></ons-list-item>
-      <ons-list-item tappable><a href="list.html" target="_blank">List.html</a></ons-list-item>
-      <ons-list-item tappable><a href="infinite-list.html" target="_blank">Infinite-list.html</a></ons-list-item>
-      <ons-list-item tappable><a href="pull-to-refresh.html" target="_blank">Pull-to-refresh.html</a></ons-list-item>
+
+    <ons-list>
+      <ons-list-item ng-repeat="item in page.items">
+        Item #{{ item }}
+      </ons-list-item>
     </ons-list>
   </ons-page>
 </body>
