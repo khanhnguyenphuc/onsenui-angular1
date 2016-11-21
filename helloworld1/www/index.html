@@ -18,7 +18,7 @@
     ons.bootstrap()
       .controller('AppController', function($scope) {
 
-        $scope.myName = "";
+        $scope.myName = "111";
         $scope.clickHandler = function(event) {
           console.log(11111);
           ons.notification.alert('Hello ' + $scope.myName);
@@ -29,33 +29,25 @@
     });
   </script>
 </head>
-<body>
-  <ons-page ng-controller="AppController as app">
+<body ng-controller="AppController">
+  <ons-page>
     <ons-toolbar>
-      <div class="center">My App - {{app.title}}</div>
+      <div class="left">
+        <ons-back-button>Back</ons-back-button>
+      </div>
+      <div class="center">Title</div>
+      <div class="right">
+        <ons-toolbar-button>
+          <ons-icon icon="md-menu"></ons-icon>
+        </ons-toolbar-button>
+      </div>
     </ons-toolbar>
 
-    <ons-tabbar position="auto">
-      <ons-tab page="page1.html" label="Page 1" icon="square" active></ons-tab>
-      <ons-tab page="page2.html" label="Page 2" icon="square"></ons-tab>
-    </ons-tabbar>
+    <div>
+      <ons-input ng-model="myName" placeholder="Your Name" float></ons-input>
+      <ons-button ng-click="clickHandler()">Say Hello</ons-button>
+      Hello <span ng-bind="myName"></span>!
+    </div>
   </ons-page>
-
-  <ons-template id="page1.html">
-    <ons-page ons-show="app.title = 'Page 1'">
-      <div class="content" style="text-align: center">
-        <p>Page 1 content</p>
-      </div>
-    </ons-page>
-  </ons-template>
-
-  <ons-template id="page2.html">
-    <ons-page ons-show="app.title = 'Page 2'">
-      <div class="content" style="text-align: center">
-        <p>Page 2 content</p>
-      </div>
-    </ons-page>
-  </ons-template>
-
 </body>
 </html>

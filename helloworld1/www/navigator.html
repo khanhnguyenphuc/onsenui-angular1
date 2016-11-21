@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta http-equiv="Content-Security-Policy" content="default-src * data:; style-src * 'unsafe-inline'; script-src * 'unsafe-inline' 'unsafe-eval'">
+  <script src="components/loader.js"></script>
+  <script src="lib/angular/angular.min.js"></script>
+  <script src="lib/onsenui/js/onsenui.min.js"></script>
+  <script src="lib/onsenui/js/angular-onsenui.min.js"></script>
+  <script src="components/navigator/navigator.js"></script>
+
+  <link rel="stylesheet" href="components/loader.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
+  <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <ons-navigator var="myNavigator" id="myNavigator" page="page1.html" animation="slide"></ons-navigator>
+
+  <ons-template id="page1.html">
+    <ons-page id="page1" ng-controller="NavigatorController as navi">
+      <ons-toolbar>
+        <div class="center">Page 1</div>
+      </ons-toolbar>
+
+      <p>This is the first page.</p>
+      <ons-list-header>Choose Animation</ons-list-header>
+      <ons-list-item tappable ng-click="navi.changeAnimation('fade')">fade</ons-list-item>
+      <ons-list-item tappable ng-click="navi.changeAnimation('lift')">lift</ons-list-item>
+      <ons-list-item tappable ng-click="navi.changeAnimation('slide')">slide</ons-list-item>
+      <ons-list-item tappable ng-click="navi.changeAnimation('none')">none</ons-list-item>
+    </ons-page>
+  </ons-template>
+
+  <ons-template id="page2.html">
+    <ons-page id="page2">
+      <ons-toolbar>
+        <div class="left"><ons-back-button>Back</ons-back-button></div>
+        <div class="center">{{ myNavigator.topPage.data.title }}</div>
+      </ons-toolbar>
+
+      <p>This is the second page.</p>
+    </ons-page>
+  </ons-template>
+</body>
+</html>
