@@ -8,14 +8,12 @@
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/onsenui/js/onsenui.min.js"></script>
   <script src="lib/onsenui/js/angular-onsenui.min.js"></script>
-  <script src="components/infinite-list/infinite.js"></script>
 
   <link rel="stylesheet" href="components/loader.css">
   <link rel="stylesheet" href="lib/onsenui/css/onsenui.css">
   <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-  <infinite></infinite>
+<body ng-app="">
+	<div ng-include="'components/range-slider/range-slider.htm'"></div>
 </body>
-</html>

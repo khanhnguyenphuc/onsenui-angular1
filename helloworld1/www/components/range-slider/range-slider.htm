@@ -1,0 +1,43 @@
+
+<script type="text/javascript" src="range-slider.js"></script>
+<ons-page ng-controller="PageController">
+  <ons-toolbar>
+    <div class="center">Range sliders</div>
+  </ons-toolbar>
+
+  <p>
+    <ons-row>
+      <ons-col width="40px" style="text-align: center; line-height: 31px;">
+        <ons-icon icon="md-volume-down"></ons-icon>
+      </ons-col>
+      <ons-col>
+        <ons-range style="width: 100%;" value="{volume}" ng-click="changeVolume"></ons-range>
+      </ons-col>
+      <ons-col width="40px" style="text-align: center; line-height: 31px;">
+        <ons-icon icon="md-volume-up"></ons-icon>
+      </ons-col>
+    </ons-row>
+    <ons-row style="margin-top: 20px;">
+      <ons-col width="40px" style="text-align: center; line-height: 31px;">
+        <ons-icon icon="md-brightness-low"></ons-icon>
+      </ons-col>
+      <ons-col>
+        <ons-range style="width: 100%;" value="50"></ons-range>
+      </ons-col>
+      <ons-col width="40px" style="text-align: center; line-height: 31px;">
+        <ons-icon icon="md-brightness-high"></ons-icon>
+      </ons-col>
+    </ons-row>
+    <ons-row style="margin-top: 20px;">
+      <ons-col width="40px" style="text-align: center; line-height: 31px;">
+        <ons-icon icon="md-thumb-down"></ons-icon>
+      </ons-col>
+      <ons-col>
+        <ons-range disabled style="width: 100%;" value="75"></ons-range>
+      </ons-col>
+      <ons-col width="40px" style="text-align: center; line-height: 31px;">
+        <ons-icon icon="md-thumb-up"></ons-icon>
+      </ons-col>
+    </ons-row>
+  </p>
+</ons-page>

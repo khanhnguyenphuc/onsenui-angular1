@@ -15,4 +15,21 @@ ons.bootstrap()
         console.log('Destroyed item with index: ' + index);
       }
     };
-  });
+  }).directive('infinite', [function() {
+    var template = ['<ons-page ng-controller="ListController as list">',
+        '<ons-toolbar>',
+          '<div class="center">Lists</div>',
+          '<div class="right">',
+            '<ons-toolbar-button ng-click="list.delegate.refresh()">Refresh</ons-toolbar-button>',
+          '</div>',
+        '</ons-toolbar>',
+    
+        '<ons-list var="myList">',
+          '<ons-list-item ons-lazy-repeat="list.delegate">{{ item }}</ons-list-item>',
+        '</ons-list>',
+      '</ons-page>'].join('');
+    return {
+      template: template,
+      restrict: 'E'
+    }
+  }]);
