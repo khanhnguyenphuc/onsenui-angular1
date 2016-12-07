@@ -1,0 +1,72 @@
+<ons-page ng-controller="CarouselController as carl">
+  <ons-toolbar>
+    <div class="left">
+      <ons-toolbar-button ng-click="carousel.prev()">
+        <ons-icon icon="md-chevron-left"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+    <div class="center"><go-to></go-to></div>
+    <div class="right">
+      <ons-toolbar-button ng-click="carousel.next()">
+        <ons-icon icon="md-chevron-right"></ons-icon>
+      </ons-toolbar-button>
+    </div>
+  </ons-toolbar>
+
+  <ons-carousel var="carousel" ons-postchange="console.log('Changed to ' + $event.activeIndex)" fullscreen swipeable auto-scroll overscrollable direction="">
+    <!-- <ons-carousel-item ng-repeat="dt in carl.data">{{dt}}</ons-carousel-item> -->
+    <ons-carousel-item style="background-color: #085078;">
+      <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+        <h2 id="carousel">Carousel</h2>
+          <p>A carousel is a UI component that is used to display several items in the same place. Switching between the content can either be automatic or controlled by the user.</p>
+          <p>In Onsen UI a carousel is created using the <code>&lt;ons-carousel&gt;</code> element.</p>
+          <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">ons-carousel</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ons-carousel-item</span>&gt;</span>
+              ...
+            <span class="hljs-tag">&lt;/<span class="hljs-name">ons-carousel-item</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ons-carousel-item</span>&gt;</span>
+              ...
+            <span class="hljs-tag">&lt;/<span class="hljs-name">ons-carousel-item</span>&gt;</span>
+            ...
+          <span class="hljs-tag">&lt;/<span class="hljs-name">ons-carousel</span>&gt;</span>
+          </code></pre>
+      </div>
+    </ons-carousel-item>
+    <ons-carousel-item style="background-color: #373B44;">
+      <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+        <h2 id="customization">Customization</h2>
+        <p>The <code>&lt;ons-carousel&gt;</code> element has a large number of attributes that control its behavior.</p>
+        <p>By default the carousel can not be controlled by swiping. The <code>swipeable</code> attribute will enabled this.</p>
+        <p>To make it automatically snap to item borders the <code>auto-scroll</code> attribute is used. The <code>overscrollable</code> attribute makes it possible to scroll past the first and last element of the carousel.</p>
+        <p>To make it cover the whole screen you can use the <code>fullscreen</code> attribute.</p>
+      </div>
+    </ons-carousel-item>
+    <ons-carousel-item style="background-color: #D38312;">
+      <div style="text-align: center; font-size: 30px; margin-top: 20px; color: #fff;">
+        <h2 id="changing-the-direction">Changing the direction</h2>
+        <p>The carousel goes from left to right by default. It is possible to make scroll vertically by using the <code>direction</code> attribute.</p>
+        <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">ons-carousel</span> <span class="hljs-attr">direction</span>=<span class="hljs-string">"vertical"</span>&gt;</span>
+          ...
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ons-carousel</span>&gt;</span>
+        </code></pre><p>You can try adding the <code>direction="vertical"</code> attribute to this example to see how it works.</p>
+      </div>
+      </ons-carousel-item>
+      <ons-carousel-item>
+      <div style="text-align: center; font-size: 30px; margin-top: 20px;">
+        <h2 id="methods">Methods</h2>
+        <p>The carousel can also be controlled programmatically. To switch to the previous or next item the <code>prev()</code> and <code>next()</code> are used.</p>
+        <p>To switch to a specific item the <code>setActiveIndex(index)</code> method is used.</p>
+
+      </div>
+      </ons-carousel-item>
+      <ons-carousel-item>
+      <div style="text-align: center; font-size: 30px; margin-top: 20px;">
+        <h2 id="events">Events</h2>
+        <p>The carousel element emits DOM event. Every time the current item has changed it emits the <code>postchange</code> event which is useful to make sure which is the currently displayed item.</p>
+        <p>In AngularJS this event can be handled in <code>ons-postchange</code> attribute:</p>
+        <pre><code><span class="hljs-tag">&lt;<span class="hljs-name">ons-carousel</span> <span class="hljs-attr">ons-postchange</span>=<span class="hljs-string">"console.log('Changed to ' + $event.activeIndex)"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">ons-carousel</span>&gt;</span>
+        </code></pre>      </div>
+        </ons-carousel-item>
+    </ons-carousel-item>
+  </ons-carousel>
+</ons-page>

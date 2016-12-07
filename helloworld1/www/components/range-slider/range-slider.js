@@ -1,8 +1,7 @@
 ons.bootstrap()
-  .controller('PageController', function($timeout) {
-    this.volume = 25;
-
+  .controller('PageController', function() {
+    this.volume = 45;
     this.changeVolume = function() {
-      alert(this.volume);
-    };
+    	
+    } 
   });
